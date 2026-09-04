@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Celestino en tu sala — La Fábrica de Bodas</title>
+<meta name="description" content="Trae a Celestino a tu casa en realidad aumentada.">
+<style>
+  :root{
+    --carmin:#A02136; --carmin-osc:#5E0F1F; --carmin-prof:#3D0813;
+    --oro:#FFCF2E; --oro-osc:#E0A800; --crema:#F7E9DC; --fucsia:#E01A6E;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  body{
+    min-height:100svh; display:flex; flex-direction:column; align-items:center;
+    justify-content:center; gap:28px; padding:40px 24px calc(40px + env(safe-area-inset-bottom));
+    background:radial-gradient(120% 90% at 50% 0%, var(--carmin-osc) 0%, var(--carmin-prof) 60%, #240509 100%);
+    color:var(--crema); text-align:center;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  }
+  .logo{width:min(230px,58vw);height:auto;filter:drop-shadow(0 6px 22px rgba(0,0,0,.55))}
+  h1{font-size:clamp(26px,7vw,40px);line-height:1.1;font-weight:800;letter-spacing:-.02em}
+  h1 span{color:var(--oro);display:block}
+  p.sub{font-size:16px;line-height:1.5;max-width:30ch;opacity:.82}
+  a.ar{
+    display:block; width:min(300px,74vw); border-radius:24px; overflow:hidden;
+    border:3px solid var(--oro); background:#00000030; text-decoration:none;
+    box-shadow:0 18px 46px rgba(0,0,0,.55); transition:transform .15s ease;
+  }
+  a.ar:active{transform:scale(.97)}
+  a.ar img{display:block;width:100%;height:auto}
+  .cta{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    padding:16px; background:var(--oro); color:#2A1116;
+    font-size:17px; font-weight:800; letter-spacing:.01em;
+  }
+  .cta svg{width:20px;height:20px;flex:none}
+  .nota{font-size:13px;line-height:1.5;opacity:.55;max-width:32ch}
+  .aviso{
+    display:none; font-size:14px; line-height:1.5; padding:14px 18px; border-radius:14px;
+    background:#00000045; border:1px solid #ffffff22; max-width:34ch;
+  }
+  html:not(.ios) .aviso{display:block}
+  html:not(.ios) a.ar{opacity:.4; pointer-events:none}
+</style>
+</head>
+<body>
+
+  <img class="logo" src="logo-fdb.png" alt="La Fábrica de Bodas">
+
+  <h1>Trae a Celestino<span>a tu sala</span></h1>
+  <p class="sub">Apunta tu iPhone al suelo y míralo aparecer a tamaño real.</p>
+  <p class="nota" style="margin-top:-18px">Prueba técnica — el modelo definitivo está en producción.</p>
+
+  <a class="ar" rel="ar" href="https://developer.apple.com/quick-look-gallery/models/vintagerobot2k/robot.usdz">
+    <img src="poster-celestino.jpg" alt="Celestino">
+    <span class="cta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round">
+        <path d="M12 2.6 21 7.4v9.2L12 21.4 3 16.6V7.4z"/><path d="M3 7.4 12 12l9-4.6M12 12v9.4"/>
+      </svg>
+      Ver en tu espacio
+    </span>
+  </a>
+
+  <p class="aviso">Esta experiencia usa la realidad aumentada de Apple.<br>Ábrela desde un <strong>iPhone o iPad</strong> con Safari.</p>
+
+  <p class="nota">La Fábrica de Bodas · Aldea Films</p>
+
+<script>
+  // Marca iOS/iPadOS para habilitar el botón AR
+  var ua = navigator.userAgent;
+  var esIOS = /iPhone|iPad|iPod/.test(ua) ||
+              (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  if (esIOS) document.documentElement.classList.add('ios');
+</script>
+</body>
+</html>
