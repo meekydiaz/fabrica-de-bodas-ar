@@ -68,10 +68,10 @@
   <p class="nota">La Fábrica de Bodas · Aldea Films</p>
 
 <script>
-  var ua = navigator.userAgent;
-  var esIOS = /iPhone|iPad|iPod/.test(ua) ||
-              (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-  if (esIOS) document.documentElement.classList.add('ios');
+  // Metodo oficial de Apple: preguntar si el navegador soporta enlaces AR
+  var a = document.createElement('a');
+  var soportaAR = a.relList && a.relList.supports && a.relList.supports('ar');
+  if (soportaAR) document.documentElement.classList.add('ios');
 </script>
 </body>
 </html>
